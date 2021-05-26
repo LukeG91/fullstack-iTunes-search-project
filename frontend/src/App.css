@@ -67,6 +67,193 @@ body{
 .backgroundImage{
   width: 100%;
   height: 100vh;
-  z-index: -100;
   object-fit: cover;
+  opacity: 70%;
+}
+
+/* Styling the Movies component. */
+
+.mainContainerMoviesComponent{
+  position: relative;
+}
+
+.subContainerMoviesComponent{
+  position: absolute;
+  top: 50px;
+  color: #fff;
+  border: solid black;
+  border-radius: 5px;
+  width: 80%;
+  /* height: 10%; */
+  left: 130px;
+}
+
+.goToHomeLinkContainer{
+  position: absolute;
+  right: 15px;
+  top: 50px;
+  width: 150px;
+}
+
+.goToHomeLink{
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 10px;
+}
+
+.goToHomeLink:hover{
+  transition: ease-in 0.5s;
+  color: #a9f1df;
+}
+
+/* Styling the Songs component. */
+
+.mainContainerSongsComponent{
+  position: relative;
+}
+
+.subContainerSongsComponent{
+  position: absolute;
+  top: 50px;
+  border: solid black;
+  border-radius: 5px;
+  left: 15%;
+  width: 65%;
+  color: #fff;
+}
+
+.searchButton{
+  width: 80px;
+  height: 30px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  border: solid #fff;
+  border-radius: 5px;
+  padding: 3px; 
+}
+
+.searchButton:hover{
+  background-color: lightgray;
+  transition: ease-in 0.5s;
+  color: black;
+}
+
+/* Styling the Podcast component. */
+
+.mainPodcastContainer{
+  position: relative;
+}
+
+.subPodcastContainer{
+  position: absolute;
+  top: 50px;
+  border: solid black;
+  border-radius: 5px;
+  left: 15%;
+  width: 65%;
+  color: #fff;
+}
+
+/* Styling the AudioBook component. */
+
+.mainAudiBookContainer{
+  position: relative;  
+}
+
+.subAudiBookContainer{
+  position: absolute;
+  top: 50px;
+  border: solid black;
+  border-radius: 5px;
+  left: 15%;
+  width: 65%;
+  color: #fff;
+}
+
+.pageHeading{
+  text-decoration: underline;
+}
+
+/* Styling the Short Films container. */
+
+.mainShortFilmContainer{
+  position: relative;
+}
+
+.subShortFilmContainer{
+  position: absolute;
+  top: 50px;
+  color: #fff;
+  border: solid black;
+  border-radius: 5px;
+  width: 80%;
+  /* height: 10%; */
+  left: 130px;
+}
+
+/* Styling the Tv shows component. */
+
+.mainTvShowContainer{
+  position: relative;
+}
+
+.subTvShowContainer{
+  position: absolute;
+  top: 50px;
+  border: solid black;
+  border-radius: 5px;
+  left: 15%;
+  width: 65%;
+  color: #fff;
+}
+
+/* Styling the Software component. */
+
+.mainSoftwareContainer{
+  position: relative;
+}
+
+.subSoftwareContainer{
+  position: absolute;
+  top: 50px;
+  border: solid black;
+  border-radius: 5px;
+  left: 15%;
+  width: 65%;
+  color: #fff;
+}
+
+/* Styling the Ebook component. */
+
+.mainEbookContainer{
+  position: relative;
+}
+
+.subEbookContainer{
+  position: absolute;
+  top: 50px;
+  border: solid black;
+  border-radius: 5px;
+  left: 15%;
+  width: 65%;
+  color: #fff;
+}
+
+/* Styling the AllMedia component. */
+
+.mainAllMediaContainer{
+  position: relative;
+}
+
+.subAllMediaContainer{
+  position: absolute;
+  top: 50px;
+  border: solid black;
+  border-radius: 5px;
+  left: 15%;
+  width: 65%;
+  color: #fff;
 }

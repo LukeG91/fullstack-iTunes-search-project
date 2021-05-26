@@ -1,6 +1,7 @@
 import React from "react";
 import "isomorphic-fetch";
 import axios from "axios";
+import songsBackgroundImage from "../images/music-background.jpg";
 
 function Songs({ state }) {
   const inputChangeHandler = (e) => {
@@ -22,18 +23,35 @@ function Songs({ state }) {
   }
 
   return (
-    <div>
-      <h1>Welcome to the songs page:</h1>
-      <input
-        type="text"
-        placeholder="Enter artist's name"
-        onChange={inputChangeHandler}
+    <div className="mainContainerSongsComponent">
+      <img
+        src={songsBackgroundImage}
+        alt="songs-background-image"
+        className="backgroundImage"
       />
-      <br />
-      <br />
-      <button onClick={searchForSongs}>Search</button>
-      <br />
-      <br />
+      <div className="subContainerSongsComponent">
+        <h1 className="pageHeading">
+          <em>Welcome to the music section:</em>
+        </h1>
+        <input
+          type="text"
+          placeholder="Enter artist's name"
+          onChange={inputChangeHandler}
+          className=""
+        />
+        <br />
+        <br />
+        <button onClick={searchForSongs} className="searchButton">
+          Search
+        </button>
+        <br />
+        <br />
+      </div>
+      <div className="goToHomeLinkContainer">
+        <a href="/" className="goToHomeLink">
+          <em>Go to home</em>
+        </a>
+      </div>
     </div>
   );
 }

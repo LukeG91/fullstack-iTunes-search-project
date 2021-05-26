@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import backgroundimage from "../images/background-image.jpg";
+import backgroundImage from "../images/background-image.jpg";
 import { motion } from "framer-motion";
 
 function Header() {
@@ -20,7 +20,7 @@ function Header() {
   return (
     <div className="mainHeaderContainer">
       <img
-        src={backgroundimage}
+        src={backgroundImage}
         alt="background-img"
         className="backgroundImage"
       />
