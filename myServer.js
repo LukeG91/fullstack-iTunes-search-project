@@ -32,6 +32,6 @@ app.use("/", serverRoutes);
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
   console.log(
-    `Server is listening on port ${PORT}, browse to http://localhost:5050 to see the server.`
+    `Server is listening on port ${PORT}: \nBrowse to http://localhost:5050 to see the server.`
   );
 });

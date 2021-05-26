@@ -1,25 +1,35 @@
 /* Creating the routes for my app in this file which is
    seperate from myServer.js. */
 
+const { response } = require("express");
 const express = require("express");
 const app = express();
 const router = express.Router();
 const fileHandler = require("fs");
 const request = require("request");
+const bodyParser = require("body-parser");
 
-const artist = "50 cent";
+// const artist = "50 cent";
 
-/* Creating the route to GET data. */
+/* Adding the code below so that I will be able to pass data
+     through the body of the HTTP request.  */
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+/* Creating the routes to GET data. */
+/* ================================ */
 
 /* Creating a route handler to return the movies for a perticular artists and
    Im limiting the results to 25. */
 
-router.get("/get1", (req, res) => {
-  res.set("Content-Type", "application/json");
-  request({
-    uri: `https://itunes.apple.com/search?term=${artist}&entity=movie&limit=25`,
+router.get("/music/:artist", async (req, res) => {
+  // const artist = req.params.artist;
+  // const artist = "50 cent";
+  let apiCall = request({
+    uri: `https://itunes.apple.com/search?term=50+cent&entity=movie&limit=25`,
   }).pipe(res);
-  console.log(res);
+  const apiData = apiCall.json();
+  console.log(apiData);
 });
 
 /* Creating a route handler to return the podcasts for a perticular artists and

@@ -1,0 +1,72 @@
+body{
+  background-color: whitesmoke;
+}
+
+/* Styling the App component. */
+
+.App {
+  text-align: center;
+}
+
+/* Styling the header component. */
+
+.mainHeaderContainer{
+  position: relative;
+}
+
+.subHeaderContainer{
+  position: absolute;
+  top: 50px;
+  color: #fff;
+  border: solid whitesmoke;
+  border-radius: 5px;
+  width: 80%;
+  height: 30%;
+  left: 130px;
+}
+
+.headerComponentMainHeading{
+  text-decoration: underline;
+}
+
+.headerComponentSearchOptionHeading{
+  text-decoration: underline;
+}
+
+.searchBarOptionsContainer{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 25px;
+  color: #fff;
+}
+
+.searchBarContainer{
+  border: solid #fff;
+  border-radius: 5px;
+  height: 10vh;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchLinks{
+  text-decoration: none;
+  color: #fff;
+  border: solid #fff;
+  border-radius: 5px;
+  padding: 3px; 
+}
+
+.searchLinks:hover{
+  background-color: lightgray;
+  transition: ease-in 0.5s;
+  color: black;
+
+}
+
+.backgroundImage{
+  width: 100%;
+  height: 100vh;
+  z-index: -100;
+  object-fit: cover;
+}
