@@ -31,6 +31,7 @@ function Header() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 2 }}
+          className="headerComponentMainHeading"
         >
           Welcome to my iTunes search app:
         </motion.h1>
@@ -41,6 +42,7 @@ function Header() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 2 }}
+          className="headerComponentSubHeading"
         >
           <em>Click the media type that you would like to search for below:</em>
         </motion.h3>

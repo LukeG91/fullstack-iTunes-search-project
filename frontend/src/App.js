@@ -12,6 +12,8 @@ import TvShows from "./Components/TvShows";
 import Software from "./Components/Software";
 import Ebooks from "./Components/Ebooks";
 import AllMedia from "./Components/AllMedia";
+import fetch from "node-fetch";
+import axios from "axios";
 
 export default class App extends Component {
   constructor(props) {
@@ -19,8 +21,10 @@ export default class App extends Component {
 
     this.state = {
       artist: "",
-      searchResults: "",
+      searchResults: [],
       error: "",
+      pageHasLoaded: false,
+      favoriteMedia: [],
     };
   }
 

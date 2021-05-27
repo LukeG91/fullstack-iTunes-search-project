@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body{
   background-color: whitesmoke;
 }
@@ -61,14 +66,23 @@ body{
   background-color: lightgray;
   transition: ease-in 0.5s;
   color: black;
-
 }
 
 .backgroundImage{
   width: 100%;
-  height: 100vh;
+  height: 1300px;
   object-fit: cover;
   opacity: 70%;
+}
+
+.headerComponentMainHeading{
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+.headerComponentSubHeading{
+  margin-bottom: 50px;
+  text-decoration: underline;
 }
 
 /* Styling the Movies component. */
@@ -81,7 +95,7 @@ body{
   position: absolute;
   top: 50px;
   color: #fff;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   width: 80%;
   /* height: 10%; */
@@ -114,8 +128,8 @@ body{
 
 .subContainerSongsComponent{
   position: absolute;
-  top: 50px;
-  border: solid black;
+  top: 10px;
+  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -141,6 +155,67 @@ body{
   color: black;
 }
 
+.musicInformationMaineContainer{
+  top: 300px;
+  border:  solid whitesmoke;
+  border-radius: 5px;
+  width: 80%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.outerMusicInfoContainer{
+  position: absolute;
+  top: 300px;
+  left: 12%;
+}
+
+.individulaSongContainer{
+  border: solid whitesmoke;
+  width: 110px;
+  height: 180px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.individulaSongContainer:hover{
+  background-color: gray;
+  
+  transition: ease-in .5s;
+}
+
+.linkToSong{
+  text-decoration: none;
+}
+
+
+.artistsName{
+  color: black;
+}
+
+.artistsInputField{
+  height: 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.artistsInputField:focus{
+  outline: none;
+}
+
+.albumArtworkInnerContainer{
+  border: solid black;
+  position: absolute;
+  bottom: 0;
+  left: 3px;
+}
+
 /* Styling the Podcast component. */
 
 .mainPodcastContainer{
@@ -150,7 +225,7 @@ body{
 .subPodcastContainer{
   position: absolute;
   top: 50px;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -166,7 +241,7 @@ body{
 .subAudiBookContainer{
   position: absolute;
   top: 50px;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -175,6 +250,21 @@ body{
 
 .pageHeading{
   text-decoration: underline;
+  font-size: 3.5rem;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  border: solid black;
+  border-radius: 5px;
+}
+
+.songsPageHeading{
+  text-decoration: underline;
+  font-size: 3.5rem;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  border: solid black;
+  background-color: black;
+  border-radius: 5px;
 }
 
 /* Styling the Short Films container. */
@@ -187,7 +277,7 @@ body{
   position: absolute;
   top: 50px;
   color: #fff;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   width: 80%;
   /* height: 10%; */
@@ -203,7 +293,7 @@ body{
 .subTvShowContainer{
   position: absolute;
   top: 50px;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -219,7 +309,7 @@ body{
 .subSoftwareContainer{
   position: absolute;
   top: 50px;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -235,7 +325,7 @@ body{
 .subEbookContainer{
   position: absolute;
   top: 50px;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -251,7 +341,7 @@ body{
 .subAllMediaContainer{
   position: absolute;
   top: 50px;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;

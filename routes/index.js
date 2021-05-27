@@ -8,6 +8,7 @@ const router = express.Router();
 const fileHandler = require("fs");
 const request = require("request");
 const bodyParser = require("body-parser");
+const fetch = require("node-fetch");
 
 // const artist = "50 cent";
 
@@ -23,13 +24,14 @@ app.use(bodyParser.json());
    Im limiting the results to 25. */
 
 router.get("/music/:artist", async (req, res) => {
-  // const artist = req.params.artist;
+  const chosenArtist = req.params.artist;
   // const artist = "50 cent";
-  let apiCall = request({
-    uri: `https://itunes.apple.com/search?term=50+cent&entity=movie&limit=25`,
-  }).pipe(res);
-  const apiData = apiCall.json();
-  console.log(apiData);
+
+  const urlToUse = `https://itunes.apple.com/search?term=${chosenArtist}&media=music&limit=25`;
+  const initiateApiCall = await fetch(urlToUse);
+  const musicApiCallResponse = await initiateApiCall.json();
+  res.json(musicApiCallResponse);
+  console.log(musicApiCallResponse);
 });
 
 /* Creating a route handler to return the podcasts for a perticular artists and
