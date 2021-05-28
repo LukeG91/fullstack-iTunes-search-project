@@ -12,20 +12,18 @@ import TvShows from "./Components/TvShows";
 import Software from "./Components/Software";
 import Ebooks from "./Components/Ebooks";
 import AllMedia from "./Components/AllMedia";
-import fetch from "node-fetch";
-import axios from "axios";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      artist: "",
-      searchResults: [],
-      error: "",
-      pageHasLoaded: false,
-      favoriteMedia: [],
-    };
+    // this.state = {
+    //   artist: "",
+    //   searchResults: [],
+    //   error: "",
+    //   pageHasLoaded: false,
+    //   favoriteMedia: [],
+    // };
   }
 
   render() {
@@ -43,7 +41,7 @@ export default class App extends Component {
               <Podcasts />
             </Route>
             <Route path="/music">
-              <Songs state={this.state} />
+              <Songs />
             </Route>
             <Route path="/audiobooks">
               <AudioBooks />

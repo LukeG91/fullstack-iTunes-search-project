@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "isomorphic-fetch";
 /* Importing axios into my app, Axios is an HTTP client that is used in the browser as well as within Node.js.  Axios is used
    to pass asynchronous HTTP requests to backend API's or end-points in order for CRUD operations to be performed on the data that 
@@ -6,15 +6,24 @@ import "isomorphic-fetch";
 import axios from "axios";
 import songsBackgroundImage from "../images/music-background.jpg";
 
-function Songs({ state }) {
+function Songs() {
+  /* Setting state for this component. */
+  const [artist, setArtist] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState("");
+  const [pageHasLoaded, setPageHasLoaded] = useState(false);
+  const [favoriteMedia, setFavoriteMedia] = useState([]);
   /* Creating an event handler to update the relevant piece of state (artist)
      when a user enters data into the input field to search for the
      artist they are looking for. */
 
   const inputChangeHandler = (e) => {
     let chosenArtist = e.target.value;
-    state.artist = chosenArtist;
-    console.log(chosenArtist);
+    setArtist(chosenArtist);
+    // state.artist = chosenArtist;
+    console.log(artist);
+    console.log(typeof artist);
+    console.log(typeof chosenArtist);
   };
 
   /* Creating an asynchronous function to perform the API call using axios. I am requesting the data
@@ -24,13 +33,21 @@ function Songs({ state }) {
      if not, an alert will come up asking the user to enter an artists name before trying to search for music.  */
 
   async function searchForSongs() {
-    const apiUrl = `/music/${state.artist}`;
+    const apiUrl = `/music/${artist}`;
     try {
-      if (state.artist) {
+      if (artist) {
         await axios.get(apiUrl).then((res) => {
           const resultsFromApiCall = res.data.results;
-          state.searchResults = resultsFromApiCall;
-          console.log(state.searchResults);
+          setSearchResults([...resultsFromApiCall]);
+          setPageHasLoaded({ pageHasLoaded: true });
+          // state.searchResults = resultsFromApiCall;
+          // state.pageHasLoaded = true;
+          // console.log(resultsFromApiCall);
+          console.log(searchResults);
+          console.log(pageHasLoaded);
+          console.log(resultsFromApiCall);
+          console.log(Array.isArray(resultsFromApiCall));
+          console.log(Array.isArray(searchResults));
         });
       } else {
         alert("Please enter an artist's name before searching.");
@@ -46,37 +63,63 @@ function Songs({ state }) {
   }
 
   const displayMusicInformation = () => {
-    if (state.searchResults) {
+    if (searchResults) {
       return (
-        <div className="musicInformationMaineContainer">
-          {state.searchResults.map((res, index) => {
-            return (
-              <div className="individulaSongContainer">
-                <a
-                  key={index}
-                  href={res.previewUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="linkToSong"
-                >
-                  <p className="artistsName">{res.artistName}</p>
-                  <div className="albumArtworkContainer">
-                    <div className="albumArtworkInnerContainer">
-                      <img
-                        src={res.artworkUrl100}
-                        alt={res.artistName}
-                        className="albumArtworkImage"
-                      />
+        <>
+          <div
+            className={`musicInformation ${
+              pageHasLoaded ? "musicInformationMaineContainer" : "hideContainer"
+            }`}
+          >
+            {searchResults.map((res, index) => {
+              return (
+                <div className="individulaSongContainer">
+                  <a
+                    key={index}
+                    href={res.previewUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="linkToSong"
+                  >
+                    <p className="artistsName">{res.artistName}</p>
+                    <div className="albumArtworkContainer">
+                      <div className="albumArtworkInnerContainer">
+                        <img
+                          src={res.artworkUrl100}
+                          alt={res.artistName}
+                          className="albumArtworkImage"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </div>
-            );
-          })}
-        </div>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        </>
       );
     }
   };
+
+  /* I am trying to create a function to append the results from the displayMusicInformation function to the div with the ID of 
+     'outerMusicInfoContainer' but it returns [object object] on the web page. */
+
+  // function append() {
+  //   let myDiv = document.getElementById("outerMusicInfoContainer");
+  //   myDiv.append({ displayMusicInformation });
+  // }
+
+  // const myElement = <div> {displayMusicInformation()} </div>;
+
+  // function append() {
+  //   let container = document.getElementById("outerMusicInfoContainer");
+  //   container.append(myElement);
+  // }
+
+  function showAll() {
+    searchForSongs();
+    displayMusicInformation();
+  }
 
   return (
     <div className="mainContainerSongsComponent">
@@ -97,13 +140,24 @@ function Songs({ state }) {
         />
         <br />
         <br />
-        <button onClick={searchForSongs} className="searchButton">
+        <button onClick={showAll} className="searchButton">
           Search
         </button>
+
         <br />
         <br />
       </div>
-      <div className="outerMusicInfoContainer">{displayMusicInformation()}</div>
+
+      <div
+        id="outerMusicInfoContainer"
+
+        // className={`outerMusicInfoContainer ${
+        //   state.pageHasLoaded ? "showContainer" : "hideContainer"
+        // }`}
+      >
+        {/* It works if I uncomment the line below and re-save the component but it doesnt update automatically.  */}{" "}
+        {displayMusicInformation()}
+      </div>
 
       <div className="goToHomeLinkContainer">
         <a href="/" className="goToHomeLink">

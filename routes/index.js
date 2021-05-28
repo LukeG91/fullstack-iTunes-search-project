@@ -20,17 +20,18 @@ app.use(bodyParser.json());
 /* Creating the routes to GET data. */
 /* ================================ */
 
-/* Creating a route handler to return the movies for a perticular artists and
-   Im limiting the results to 25. */
+/* Creating a route handler to return the songs for a particular artist and
+   Im limiting the results to 50. */
 
 router.get("/music/:artist", async (req, res) => {
   const chosenArtist = req.params.artist;
-  // const artist = "50 cent";
-
-  const urlToUse = `https://itunes.apple.com/search?term=${chosenArtist}&media=music&limit=25`;
+  const urlToUse = `https://itunes.apple.com/search?term=${chosenArtist}&media=music&limit=50`;
   const initiateApiCall = await fetch(urlToUse);
   const musicApiCallResponse = await initiateApiCall.json();
+  /* Running the res.json() function to set the content-type header to 'application/JSON' in order for the front-end of the
+     app to can handler the data as a JSON object. */
   res.json(musicApiCallResponse);
+  /* I am using the 'morgan' package from node to display logs on my terminal with output from my server. */
   console.log(musicApiCallResponse);
 });
 
