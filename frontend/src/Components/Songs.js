@@ -7,23 +7,42 @@ import axios from "axios";
 import songsBackgroundImage from "../images/music-background.jpg";
 
 function Songs() {
-  /* Setting state for this component. */
+  /* Setting state */
   const [artist, setArtist] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState("");
   const [pageHasLoaded, setPageHasLoaded] = useState(false);
   const [favoriteMedia, setFavoriteMedia] = useState([]);
+
+  /* Creating a function to add an item to a user's favourite list. */
+
+  const addItemTofavouritelist = (index, image, url, name) => {
+    let favouriteMediaItem = {
+      itemId: index,
+      itemImage: image,
+      linkToPreview: url,
+      artistName: name,
+    };
+
+    setFavoriteMedia([...favoriteMedia, favouriteMediaItem]);
+    console.log(favoriteMedia);
+  };
+
   /* Creating an event handler to update the relevant piece of state (artist)
      when a user enters data into the input field to search for the
      artist they are looking for. */
 
-  const inputChangeHandler = (e) => {
+  const searchInputHandler = (e) => {
+    /* Setting a variable to store the text that the user enters
+       into the input/search field. */
     let chosenArtist = e.target.value;
     setArtist(chosenArtist);
-    // state.artist = chosenArtist;
     console.log(artist);
+    /* I added the code below as I wanted to check that the type of the variables
+       were strings as my search wasn't returning the correct data.*/
     console.log(typeof artist);
     console.log(typeof chosenArtist);
+    console.log(typeof favoriteMedia);
   };
 
   /* Creating an asynchronous function to perform the API call using axios. I am requesting the data
@@ -40,10 +59,9 @@ function Songs() {
           const resultsFromApiCall = res.data.results;
           setSearchResults([...resultsFromApiCall]);
           setPageHasLoaded({ pageHasLoaded: true });
-          // state.searchResults = resultsFromApiCall;
-          // state.pageHasLoaded = true;
-          // console.log(resultsFromApiCall);
           console.log(searchResults);
+          /* I added the code below as I wanted to check that the type of the variables
+             were strings as my search wasn't returning the correct data.*/
           console.log(pageHasLoaded);
           console.log(resultsFromApiCall);
           console.log(Array.isArray(resultsFromApiCall));
@@ -53,7 +71,7 @@ function Songs() {
         alert("Please enter an artist's name before searching.");
       }
       {
-        /* Catching errors that may occur and I am loggin them to the console and alerting
+        /* Catching errors that may occur and I am logging them to the console and alerting
            the user to the error. */
       }
     } catch (e) {
@@ -61,25 +79,30 @@ function Songs() {
       console.log("The error encountered is: " + e.message);
     }
   }
-
+  /* Creating a function to display the results from the API call onto the DOM. */
   const displayMusicInformation = () => {
     if (searchResults) {
       return (
         <>
+          {/* Creating a div and I am giving it a condition in order to onlymake it
+            display on the DOM if the search results have been returned. */}
           <div
             className={`musicInformation ${
               pageHasLoaded ? "musicInformationMaineContainer" : "hideContainer"
             }`}
           >
-            {searchResults.map((res, index) => {
+            {/* I am mapping through the 'searchResults' array and I am using each value from
+                the array and I am displaying the relevant values/elements needed in there own 
+                individual containers. I am using the index of each element as the key. */}
+            {searchResults.map((res, i) => {
               return (
-                <div className="individulaSongContainer">
+                <div className="individualElementContainer">
                   <a
-                    key={index}
+                    key={i}
                     href={res.previewUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="linkToSong"
+                    className="link"
                   >
                     <p className="artistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
@@ -89,6 +112,9 @@ function Songs() {
                           alt={res.artistName}
                           className="albumArtworkImage"
                         />
+                        <button className="favouritesButton">
+                          Add to favourites
+                        </button>
                       </div>
                     </div>
                   </a>
@@ -101,20 +127,10 @@ function Songs() {
     }
   };
 
-  /* I am trying to create a function to append the results from the displayMusicInformation function to the div with the ID of 
-     'outerMusicInfoContainer' but it returns [object object] on the web page. */
-
-  // function append() {
-  //   let myDiv = document.getElementById("outerMusicInfoContainer");
-  //   myDiv.append({ displayMusicInformation });
-  // }
-
-  // const myElement = <div> {displayMusicInformation()} </div>;
-
-  // function append() {
-  //   let container = document.getElementById("outerMusicInfoContainer");
-  //   container.append(myElement);
-  // }
+  /* Creating a function that I can pass as an onClick function
+     to the 'search' button.  This function will run 2 functions
+     that are required to obtain the results from the API and display
+     them on the web page. */
 
   function showAll() {
     searchForSongs();
@@ -132,32 +148,24 @@ function Songs() {
         <h1 className="songsPageHeading">
           <em>Welcome to the music section:</em>
         </h1>
+        {/* Creating an input field to allow the user to type in a specific artist. */}
         <input
           type="text"
           placeholder="Enter an artist's name:"
-          onChange={inputChangeHandler}
+          onChange={searchInputHandler}
           className="artistsInputField"
         />
         <br />
         <br />
+        {/* Creating a button to allow the user to search for a specific artist. */}
         <button onClick={showAll} className="searchButton">
           Search
         </button>
-
         <br />
         <br />
       </div>
-
-      <div
-        id="outerMusicInfoContainer"
-
-        // className={`outerMusicInfoContainer ${
-        //   state.pageHasLoaded ? "showContainer" : "hideContainer"
-        // }`}
-      >
-        {/* It works if I uncomment the line below and re-save the component but it doesnt update automatically.  */}{" "}
-        {displayMusicInformation()}
-      </div>
+      {/* Creating a div to contain the results from the 'displayMusicInformation' function. */}
+      <div id="outerMusicInfoContainer">{displayMusicInformation()}</div>
 
       <div className="goToHomeLinkContainer">
         <a href="/" className="goToHomeLink">

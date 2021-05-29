@@ -1,3 +1,4 @@
+/* Importing the modules and components that are needed. */
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -16,15 +17,11 @@ import AllMedia from "./Components/AllMedia";
 export default class App extends Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   artist: "",
-    //   searchResults: [],
-    //   error: "",
-    //   pageHasLoaded: false,
-    //   favoriteMedia: [],
-    // };
   }
+
+  /* I am rendering the different React components based on the
+     URL that the user browses to. I am performing the routing by using 
+     the 'BrowserRouter, Switch, Route' modules from react-router-dom. */
 
   render() {
     return (
@@ -70,35 +67,3 @@ export default class App extends Component {
     );
   }
 }
-
-// import "./App.css";
-// import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import Header from "./Components/Header";
-// import Songs from "./Components/Songs";
-
-// function App() {
-//   const [artist, setArtist] = useState("");
-
-//   useEffect(() => {
-//     fetch(url)
-//       .then((res = res.json()))
-//       .then((data = setArtist()));
-//   }, [input]);
-
-//   return (
-//     <div className="App">
-//       <BrowserRouter>
-//         <Switch>
-//           <Route exact={true} path="/">
-//             <Header />
-//           </Route>
-//           <Route path="/music">
-//             <Songs />
-//           </Route>
-//         </Switch>
-//       </BrowserRouter>
-//     </div>
-//   );
-// }
-
-// export default App;
