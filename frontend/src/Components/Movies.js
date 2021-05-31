@@ -108,7 +108,7 @@ function Movies() {
                     rel="noreferrer"
                     className="link"
                   >
-                    <p className="artistsName">{res.artistName}</p>
+                    <p className="moviesArtistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
                       <div className="moviesAlbumArtworkInnerContainer">
                         <img
