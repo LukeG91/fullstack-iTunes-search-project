@@ -20,7 +20,26 @@ const app = express();
 
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(helmet());
+/* Resourced used for the helmet code below: 
+   Stack Overflow article: 
+   Title: Helmet causing MERN app hosted on heroku cause ERROR: Refused to execute inline script because it violates the following
+   Date article was posted: +- February (3 months ago from May 23rd 2021)
+   Link to article: https://stackoverflow.com/questions/65890616/helmet-causing-mern-app-hosted-on-heroku-cause-error-refused-to-execute-inline
+*/
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fullstack-media-search-project.herokuapp.com/",
+        ],
+      },
+    },
+  })
+);
 
 /* Telling the server that at the endpoint '/', the routes defined in the index.js
    file should be used. */
