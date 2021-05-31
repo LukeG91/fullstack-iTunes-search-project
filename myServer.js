@@ -36,6 +36,7 @@ app.use(
           "'unsafe-inline'",
           "https://fullstack-media-search-project.herokuapp.com/",
         ],
+        imgSrc: ["'self'", "https://*.com"],
       },
     },
   })
