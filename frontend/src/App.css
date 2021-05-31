@@ -123,7 +123,7 @@ body{
 .moviesAlbumArtworkInnerContainer{
   border: solid black;
   position: absolute;
-  bottom: 0;
+  bottom: 40px;
   left: 16px;
 }
 
@@ -196,7 +196,7 @@ body{
 .individualElementContainer{
   border: solid whitesmoke;
   width: 110px;
-  height: 180px;
+  min-height: 230px;
   margin-bottom: 15px;
   margin-top: 15px;
   border-radius: 5px;
@@ -389,7 +389,9 @@ body{
 /* Styling the favourites button that displays on all components once search results have been rendered on the DOM. */
 
 .favouritesButton{
-  margin-top: 2px;
+  position: absolute;
+  bottom: 5px;
+  left: 3px;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -398,4 +400,41 @@ body{
   background-color: black;
   color: #fff;
   transition: ease-in .5s;
+}
+
+/* Styling the favourites component. */
+
+.favouritesMainContainer{
+  background-color: black;
+  color: orange;
+  height: 1300px;
+}
+
+.favouriteMediaInformation{
+  border: solid whitesmoke;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.favouriteArtistsName{
+  color: whitesmoke
+}
+
+.favouritesAlbumArtworkInnerContainer{
+  border: solid yellow;
+  position: absolute;
+  bottom: 50px;
+  left: 15px;
+}
+
+.favouritesButton{
+  position: absolute;
+  bottom: 2px;
+}
+
+.favouritesAlbumArtworkImage{
+  width: 70px;
+  height: 100px;
+  object-fit: cover;
 }

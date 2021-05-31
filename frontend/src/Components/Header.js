@@ -82,6 +82,9 @@ function Header() {
             <a href="/all" className="searchLinks">
               All
             </a>
+            <a href="/favourites" className="searchLinks">
+              Favourites
+            </a>
           </div>
         </motion.div>
       </div>

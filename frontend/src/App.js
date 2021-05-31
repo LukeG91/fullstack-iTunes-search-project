@@ -32,7 +32,9 @@ export default class App extends Component {
               <Header />
             </Route>
             <Route path="/movies">
-              <Movies />
+              <Movies
+                addMovieItemToFavouriteList={this.addMovieItemToFavouriteList}
+              />
             </Route>
             <Route path="/podcasts">
               <Podcasts />

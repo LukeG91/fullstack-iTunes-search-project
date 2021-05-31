@@ -11,7 +11,43 @@ function Movies() {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState("");
   const [pageHasLoaded, setPageHasLoaded] = useState(false);
-  const [favoriteMedia, setFavoriteMedia] = useState([]);
+
+  /* Creating a function to add favourite items to session storage. */
+
+  const addFavouritesToSessionStorage = (favourites) => {
+    localStorage.setItem("FavouriteMediaItems", JSON.stringify(favourites));
+  };
+
+  /* Resource used for the code below: (2 variables (currentFavourites and favouriteMedia))
+     ====================================================================================
+     Stack overflow article:
+     Title: Local Storage Keeps Resetting On Page Reload
+     Answer posted by: Alberto Anderick Jr
+     Date answer was posted: Nov 19 202
+     Link to article: https://stackoverflow.com/questions/64903227/local-storage-keeps-resetting-on-page-reload
+  */
+
+  const currentFavourites =
+    JSON.parse(localStorage.getItem("FavouriteMediaItems")) || [];
+  const [favouriteMedia, setFavouriteMedia] = useState(currentFavourites);
+
+  /* ==================================================================================== */
+
+  /* Creating a function to add items to favourite list. */
+
+  const addMovieItemToFavouriteList = (i, image, name, url) => {
+    let favouriteMovieItem = {
+      itemId: i,
+      itemImage: image,
+      itemName: name,
+      itemPreviewUrl: url,
+    };
+
+    setFavouriteMedia([...favouriteMedia, favouriteMovieItem]);
+    addFavouritesToSessionStorage(favouriteMedia);
+    console.log(favouriteMedia);
+  };
+
   /* Creating an event handler to update the relevant piece of state (artist)
      when a user enters data into the input field to search for the
      artist they are looking for. */
@@ -91,12 +127,22 @@ function Movies() {
                           alt={res.artistName}
                           className="albumArtworkImage"
                         />
-                        <button className="favouritesButton">
-                          Add to favourites
-                        </button>
                       </div>
                     </div>
                   </a>
+                  <button
+                    className="favouritesButton"
+                    onClick={() =>
+                      addMovieItemToFavouriteList(
+                        i,
+                        res.artworkUrl100,
+                        res.artistName,
+                        res.previewUrl
+                      )
+                    }
+                  >
+                    Add to favourites
+                  </button>
                 </div>
               );
             })}
@@ -163,3 +209,12 @@ function Movies() {
 }
 
 export default Movies;
+
+/* Resource used: 
+   ==========================================================
+   YouTube video:
+   Video Title: React Movie App Tutorial
+   Published By: Chris Blakely
+   Date published: 5th November 2020
+   Link to video: https://www.youtube.com/watch?v=jc9_Bqzy2YQ
+*/

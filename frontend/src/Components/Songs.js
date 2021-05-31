@@ -12,20 +12,29 @@ function Songs() {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState("");
   const [pageHasLoaded, setPageHasLoaded] = useState(false);
-  const [favoriteMedia, setFavoriteMedia] = useState([]);
 
+  /* Creating a function to add favourite items to session storage. */
+
+  const addFavouritesToSessionStorage = (favourites) => {
+    localStorage.setItem("FavouriteMediaItems", JSON.stringify(favourites));
+  };
+
+  const currentFavourites =
+    JSON.parse(localStorage.getItem("FavouriteMediaItems")) || [];
+  const [favouriteMedia, setFavoriteMedia] = useState(currentFavourites);
   /* Creating a function to add an item to a user's favourite list. */
 
-  const addItemTofavouritelist = (index, image, url, name) => {
+  const addSongItemTofavouritelist = (i, image, name, url) => {
     let favouriteMediaItem = {
-      itemId: index,
+      itemId: i,
       itemImage: image,
+      itemName: name,
       linkToPreview: url,
-      artistName: name,
     };
 
-    setFavoriteMedia([...favoriteMedia, favouriteMediaItem]);
-    console.log(favoriteMedia);
+    setFavoriteMedia([...favouriteMedia, favouriteMediaItem]);
+    addFavouritesToSessionStorage(favouriteMedia);
+    console.log(favouriteMedia);
   };
 
   /* Creating an event handler to update the relevant piece of state (artist)
@@ -112,12 +121,22 @@ function Songs() {
                           alt={res.artistName}
                           className="albumArtworkImage"
                         />
-                        <button className="favouritesButton">
-                          Add to favourites
-                        </button>
                       </div>
                     </div>
                   </a>
+                  <button
+                    className="favouritesButton"
+                    onClick={() =>
+                      addSongItemTofavouritelist(
+                        i,
+                        res.artworkUrl100,
+                        res.artistName,
+                        res.previewUrl
+                      )
+                    }
+                  >
+                    Add to favourites
+                  </button>
                 </div>
               );
             })}
