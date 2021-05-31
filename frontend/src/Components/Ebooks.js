@@ -99,7 +99,7 @@ function Ebooks() {
                     rel="noreferrer"
                     className="link"
                   >
-                    <p className="artistsName">{res.artistName}</p>
+                    <p className="ebooksArtistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
                       <div className="ebookArtworkInnerContainer">
                         <img

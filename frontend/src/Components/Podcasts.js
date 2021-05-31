@@ -99,7 +99,7 @@ function Podcasts() {
                     rel="noreferrer"
                     className="link"
                   >
-                    <p className="artistsName">{res.artistName}</p>
+                    <p className="PodcastArtistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
                       <div className="podcastsAlbumArtworkInnerContainer">
                         <img

@@ -100,10 +100,8 @@ body{
   position: absolute;
   top: 50px;
   color: #fff;
-  /* border: solid black; */
   border-radius: 5px;
   width: 80%;
-  /* height: 10%; */
   left: 130px;
 }
 
@@ -141,7 +139,6 @@ body{
 .subContainerSongsComponent{
   position: absolute;
   top: 10px;
-  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -210,14 +207,12 @@ body{
 
 .individulaSongContainer:hover{
   background-color: gray;
-  
   transition: ease-in .5s;
 }
 
 .link{
   text-decoration: none;
 }
-
 
 .artistsName{
   color: black;
@@ -244,6 +239,10 @@ body{
   display: none
 }
 
+.SongsArtistsName{
+  color: #fff;
+}
+
 /* Styling the Podcast component. */
 
 .mainPodcastContainer{
@@ -266,17 +265,19 @@ body{
   left: 2px;
 }
 
+.PodcastArtistsName{
+  color: #fff;
+}
+
 /* Styling the AudioBook component. */
 
 .mainAudiBookContainer{
   position: relative;
-   
 }
 
 .subAudiBookContainer{
   position: absolute;
   top: 20px;
-  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -288,7 +289,6 @@ body{
   font-size: 3.5rem;
   padding-bottom: 10px;
   margin-bottom: 25px;
-  /* border: solid black; */
   border-radius: 5px;
 }
 
@@ -302,6 +302,10 @@ body{
   border-radius: 5px;
 }
 
+.AudiBookArtistsName{
+  color: #fff;
+}
+
 /* Styling the Short Films container. */
 
 .mainShortFilmContainer{
@@ -312,10 +316,8 @@ body{
   position: absolute;
   top: 50px;
   color: #fff;
-  /* border: solid black; */
   border-radius: 5px;
   width: 80%;
-  /* height: 10%; */
   left: 130px;
 }
 
@@ -328,10 +330,13 @@ body{
 .subTvShowContainer{
   position: absolute;
   top: 50px;
-  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
+  color: #fff;
+}
+
+.tvShowsArtistsName{
   color: #fff;
 }
 
@@ -344,10 +349,13 @@ body{
 .subSoftwareContainer{
   position: absolute;
   top: 50px;
-  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
+  color: #fff;
+}
+
+.softwareArtistsName{
   color: #fff;
 }
 
@@ -366,10 +374,13 @@ body{
 .subEbookContainer{
   position: absolute;
   top: 50px;
-  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
+  color: #fff;
+}
+
+.ebooksArtistsName{
   color: #fff;
 }
 

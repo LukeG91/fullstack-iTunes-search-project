@@ -99,7 +99,7 @@ function AudioBooks() {
                     rel="noreferrer"
                     className="link"
                   >
-                    <p className="artistsName">{res.artistName}</p>
+                    <p className="AudiBookArtistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
                       <div className="podcastsAlbumArtworkInnerContainer">
                         <img

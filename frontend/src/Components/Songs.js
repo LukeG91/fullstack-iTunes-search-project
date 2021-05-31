@@ -106,7 +106,7 @@ function Songs() {
                     rel="noreferrer"
                     className="link"
                   >
-                    <p className="artistsName">{res.artistName}</p>
+                    <p className="SongsArtistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
                       <div className="albumArtworkInnerContainer">
                         <img

@@ -99,7 +99,7 @@ function Software() {
                     rel="noreferrer"
                     className="link"
                   >
-                    <p className="artistsName">{res.artistName}</p>
+                    <p className="softwareArtistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
                       <div className="podcastsAlbumArtworkInnerContainer">
                         <img
