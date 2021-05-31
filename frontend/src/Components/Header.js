@@ -22,7 +22,7 @@ function Header() {
       <img
         src={backgroundImage}
         alt="background-img"
-        className="backgroundImage"
+        className="backgroundImageHeader"
       />
       <div className="subHeaderContainer">
         {/* Adding animations to the main heading on this component. */}

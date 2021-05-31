@@ -1,40 +1,32 @@
 import React, { useState } from "react";
 import "../App.css";
-import favouritesBackgroundImage from "../images/favourites-backgroundimage.jpg";
 
 export const Favourites = () => {
-  /* Creating a function to pull the favourite media items from session storage 
+  /* Creating a function to pull the favourite media items from local storage 
      and I am storing them in an array. */
-
   const favourites = JSON.parse(localStorage.getItem("FavouriteMediaItems"));
-  // console.log(searchForFavourites);
 
   /* Setting state. */
-
   const [userFavourites, setUserFavourites] = useState(favourites);
-  /* creating a function to remove items from the users list of favouries. */
 
+  /* creating a function to remove items from the users list of favouries. */
   const removeItemFromFavouriteList = (res) => {
     setUserFavourites(userFavourites.filter((i) => i.itemId !== res.itemId));
     localStorage.setItem("FavouriteMediaItems", JSON.stringify(userFavourites));
     console.log(userFavourites);
     console.log(favourites);
   };
+
+  /* Creating a function to display the results within the 'userFavourites' array onto the DOM. */
   const displayFavouriteList = () => {
-    // console.log(favourites);
-    // console.log(Array.isArray(favourites));
     return (
       <>
-        {/* Creating a div and I am giving it a condition in order to onlymake it
-            display on the DOM if the search results have been returned. */}
+        {/* Creating a div container for the favourite media items. */}
         <div className="musicInformationMaineContainer">
           {/* I am mapping through the 'searchResults' array and I am using each value from
-                the array and I am displaying the relevant values/elements needed in there own 
-                individual containers. I am using the index of each element as the key. */}
+              the array and I am displaying the relevant values/elements needed in there own 
+              individual containers. I am using the index of each element as the key. */}
           {userFavourites.map((res) => {
-            // console.log(favourites);
-            // console.log(res.itemId);
-            // console.log(res.itemPreviewUrl);
             return (
               <div className="individualElementContainer">
                 <a
@@ -94,4 +86,5 @@ export default Favourites;
    Published By: Chris Blakely
    Date published: 5th November 2020
    Link to video: https://www.youtube.com/watch?v=jc9_Bqzy2YQ
+   ==========================================================
 */

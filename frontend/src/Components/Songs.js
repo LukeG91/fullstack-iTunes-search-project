@@ -10,20 +10,21 @@ function Songs() {
   /* Setting state */
   const [artist, setArtist] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState("");
   const [pageHasLoaded, setPageHasLoaded] = useState(false);
 
-  /* Creating a function to add favourite items to session storage. */
-
+  /* Creating a function to add favourite items to local storage. */
   const addFavouritesToSessionStorage = (favourites) => {
     localStorage.setItem("FavouriteMediaItems", JSON.stringify(favourites));
   };
 
+  /* Creating a variable to store the favourite items. */
   const currentFavourites =
     JSON.parse(localStorage.getItem("FavouriteMediaItems")) || [];
-  const [favouriteMedia, setFavoriteMedia] = useState(currentFavourites);
-  /* Creating a function to add an item to a user's favourite list. */
 
+  /* Setting state for favouriteMedia. */
+  const [favouriteMedia, setFavoriteMedia] = useState(currentFavourites);
+
+  /* Creating a function to add an item to a user's favourite list. */
   const addSongItemTofavouritelist = (i, image, name, url) => {
     let favouriteMediaItem = {
       itemId: i,
@@ -40,7 +41,6 @@ function Songs() {
   /* Creating an event handler to update the relevant piece of state (artist)
      when a user enters data into the input field to search for the
      artist they are looking for. */
-
   const searchInputHandler = (e) => {
     /* Setting a variable to store the text that the user enters
        into the input/search field. */
@@ -56,10 +56,9 @@ function Songs() {
 
   /* Creating an asynchronous function to perform the API call using axios. I am requesting the data
      from my local API by setting a variable that contains the URL that needs to be used in order to
-     initiate the elevant API call on the local API/Express server.  I have included an if statement to
+     initiate the relevant API call on the local API/Express server.  I have included an if statement to
      check if there is data in the 'artist' piece of state and if there is then the API call will be made,
      if not, an alert will come up asking the user to enter an artists name before trying to search for music.  */
-
   async function searchForSongs() {
     const apiUrl = `/music/${artist}`;
     try {
@@ -69,12 +68,6 @@ function Songs() {
           setSearchResults([...resultsFromApiCall]);
           setPageHasLoaded({ pageHasLoaded: true });
           console.log(searchResults);
-          /* I added the code below as I wanted to check that the type of the variables
-             were strings as my search wasn't returning the correct data.*/
-          console.log(pageHasLoaded);
-          console.log(resultsFromApiCall);
-          console.log(Array.isArray(resultsFromApiCall));
-          console.log(Array.isArray(searchResults));
         });
       } else {
         alert("Please enter an artist's name before searching.");
@@ -93,8 +86,8 @@ function Songs() {
     if (searchResults) {
       return (
         <>
-          {/* Creating a div and I am giving it a condition in order to onlymake it
-            display on the DOM if the search results have been returned. */}
+          {/* Creating a div and I am giving it a condition in order to only make it
+              display on the DOM if the search results have been returned. */}
           <div
             className={`musicInformation ${
               pageHasLoaded ? "musicInformationMaineContainer" : "hideContainer"

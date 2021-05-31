@@ -7,22 +7,22 @@ function Podcasts() {
   /* Setting state */
   const [artist, setArtist] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState("");
   const [pageHasLoaded, setPageHasLoaded] = useState(false);
 
-  /* Creating a function to add favourite items to session storage. */
-
+  /* Creating a function to add favourite items to local storage. */
   const addFavouritesToSessionStorage = (favourites) => {
     localStorage.setItem("FavouriteMediaItems", JSON.stringify(favourites));
   };
 
+  /* Creating a variable to store the favourite items. */
   const currentFavourites =
     JSON.parse(localStorage.getItem("FavouriteMediaItems")) || [];
+
+  /* Setting state for favouriteMedia */
   const [favouriteMedia, setFavoriteMedia] = useState(currentFavourites);
 
   /* Creating a function to add an item to a user's favourite list. */
-
-  const addSongItemTofavouritelist = (i, image, name, url) => {
+  const addPodcastItemTofavouritelist = (i, image, name, url) => {
     let favouriteMediaItem = {
       itemId: i,
       itemImage: image,
@@ -38,15 +38,19 @@ function Podcasts() {
   /* Creating an event handler to update the relevant piece of state (artist)
      when a user enters data into the input field to search for the
      artist they are looking for. */
-
   const searchInputHandler = (e) => {
     /* Setting a variable to store the text that the user enters
-         into the input/search field. */
+       into the input/search field. */
     let chosenArtist = e.target.value;
     setArtist(chosenArtist);
     console.log(artist);
   };
 
+  /* Creating an asynchronous function to perform the API call using axios. I am requesting the data
+     from my local API by setting a variable that contains the URL that needs to be used in order to
+     initiate the relevant API call on the local API/Express server.  I have included an if statement to
+     check if there is data in the 'artist' piece of state and if there is then the API call will be made,
+     if not, an alert will come up asking the user to enter an artists name before trying to search for podcasts.  */
   async function searchForSongs() {
     const apiUrl = `/podcasts/${artist}`;
     try {
@@ -62,7 +66,7 @@ function Podcasts() {
       }
       {
         /* Catching errors that may occur and I am logging them to the console and alerting
-               the user to the error. */
+           the user to the error. */
       }
     } catch (e) {
       alert("The error encountered is: " + e.message);
@@ -75,15 +79,15 @@ function Podcasts() {
     if (searchResults) {
       return (
         <>
-          {/* Creating a div and I am giving it a condition in order to onlymake it
-            display on the DOM if the search results have been returned. */}
+          {/* Creating a div and I am giving it a condition in order to only make it
+              display on the DOM if the search results have been returned. */}
           <div
             className={`musicInformation ${
               pageHasLoaded ? "musicInformationMaineContainer" : "hideContainer"
             }`}
           >
             {/* I am mapping through the 'searchResults' array and I am using each value from
-                the array and I am displaying the relevant values/elements needed in there own 
+                the array and I am displaying the relevant values/elements needed in their own 
                 individual containers. I am using the index of each element as the key. */}
             {searchResults.map((res, i) => {
               return (
@@ -109,7 +113,7 @@ function Podcasts() {
                   <button
                     className="favouritesButton"
                     onClick={() =>
-                      addSongItemTofavouritelist(
+                      addPodcastItemTofavouritelist(
                         i,
                         res.artworkUrl100,
                         res.artistName,

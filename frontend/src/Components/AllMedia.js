@@ -7,22 +7,22 @@ function AllMedia() {
   /* Setting state */
   const [artist, setArtist] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState("");
   const [pageHasLoaded, setPageHasLoaded] = useState(false);
 
-  /* Creating a function to add favourite items to session storage. */
-
+  /* Creating a function to add favourite items to local storage. */
   const addFavouritesToSessionStorage = (favourites) => {
     localStorage.setItem("FavouriteMediaItems", JSON.stringify(favourites));
   };
 
+  /* Creating a variable to store the favourite items. */
   const currentFavourites =
     JSON.parse(localStorage.getItem("FavouriteMediaItems")) || [];
+
+  /* Setting state for favouriteMedia. */
   const [favouriteMedia, setFavoriteMedia] = useState(currentFavourites);
 
   /* Creating a function to add an item to a user's favourite list. */
-
-  const addSongItemTofavouritelist = (i, image, name, url) => {
+  const addMediaItemTofavouritelist = (i, image, name, url) => {
     let favouriteMediaItem = {
       itemId: i,
       itemImage: image,
@@ -41,12 +41,17 @@ function AllMedia() {
 
   const searchInputHandler = (e) => {
     /* Setting a variable to store the text that the user enters
-           into the input/search field. */
+       into the input/search field. */
     let chosenArtist = e.target.value;
     setArtist(chosenArtist);
     console.log(artist);
   };
 
+  /* Creating an asynchronous function to perform the API call using axios. I am requesting the data
+     from my local API by setting a variable that contains the URL that needs to be used in order to
+     initiate the relevant API call on the local API/Express server.  I have included an if statement to
+     check if there is data in the 'artist' piece of state and if there is then the API call will be made,
+     if not, an alert will come up asking the user to enter an artists name before trying to search for media.  */
   async function searchForSongs() {
     const apiUrl = `/all/${artist}`;
     try {
@@ -62,7 +67,7 @@ function AllMedia() {
       }
       {
         /* Catching errors that may occur and I am logging them to the console and alerting
-                 the user to the error. */
+           the user to the error. */
       }
     } catch (e) {
       alert("The error encountered is: " + e.message);
@@ -71,11 +76,11 @@ function AllMedia() {
   }
 
   /* Creating a function to display the results from the API call onto the DOM. */
-  const displayMusicInformation = () => {
+  const displayMediaInformation = () => {
     if (searchResults) {
       return (
         <>
-          {/* Creating a div and I am giving it a condition in order to onlymake it
+          {/* Creating a div and I am giving it a condition in order to only make it
             display on the DOM if the search results have been returned. */}
           <div
             className={`musicInformation ${
@@ -83,7 +88,7 @@ function AllMedia() {
             }`}
           >
             {/* I am mapping through the 'searchResults' array and I am using each value from
-                the array and I am displaying the relevant values/elements needed in there own 
+                the array and I am displaying the relevant values/elements needed in their own 
                 individual containers. I am using the index of each element as the key. */}
             {searchResults.map((res, i) => {
               return (
@@ -109,7 +114,7 @@ function AllMedia() {
                   <button
                     className="favouritesButton"
                     onClick={() =>
-                      addSongItemTofavouritelist(
+                      addMediaItemTofavouritelist(
                         i,
                         res.artworkUrl100,
                         res.artistName,
@@ -135,7 +140,7 @@ function AllMedia() {
 
   function showAll() {
     searchForSongs();
-    displayMusicInformation();
+    displayMediaInformation();
   }
 
   return (
@@ -163,8 +168,8 @@ function AllMedia() {
         <br />
         <br />
       </div>
-      {/* Creating a div to contain the results from the 'displayMusicInformation' function. */}
-      <div id="outerMusicInfoContainer">{displayMusicInformation()}</div>
+      {/* Creating a div to contain the results from the 'displayMediaInformation' function. */}
+      <div id="outerMusicInfoContainer">{displayMediaInformation()}</div>
       <div className="goToHomeLinkContainer">
         <a href="/" className="goToHomeLink">
           <em>Go to home</em>
