@@ -100,7 +100,7 @@ function AllMedia() {
                     rel="noreferrer"
                     className="link"
                   >
-                    <p className="artistsName">{res.artistName}</p>
+                    <p className="AllMediaArtistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
                       <div className="allMediaAlbumArtworkInnerContainer">
                         <img

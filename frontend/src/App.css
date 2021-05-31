@@ -455,3 +455,7 @@ body{
   height: 100px;
   object-fit: cover;
 }
+
+.AllMediaArtistsName{
+  color: #fff;
+}
