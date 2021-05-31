@@ -5,8 +5,11 @@
   "main": "myServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start",
-    "dev": "nodemon myServer.js"
+    "start": "node myServer.js",
+    "server": "nodemon myServer.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +22,9 @@
     "nodemon": "2.0.7",
     "react-router-dom": "5.2.0",
     "request": "2.88.2"
+  },
+  "engines": {
+    "node": "14.15.0",
+    "npm": "6.14.9"
   }
 }

@@ -27,6 +27,16 @@ app.use(helmet());
 
 app.use("/", serverRoutes);
 
+/* Calling React build assets. */
+const path = require("path");
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
 /* Setting the port as an environment variable and I am making
    the server listen on port 3001. */
 const PORT = process.env.PORT || 5050;
