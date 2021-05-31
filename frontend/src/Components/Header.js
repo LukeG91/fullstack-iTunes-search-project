@@ -33,7 +33,7 @@ function Header() {
           transition={{ duration: 2 }}
           className="headerComponentMainHeading"
         >
-          Welcome to my iTunes search app:
+          Welcome to my search app:
         </motion.h1>
         {/* Adding animations to the heading that tells the user to select a media type. */}
         <motion.h3

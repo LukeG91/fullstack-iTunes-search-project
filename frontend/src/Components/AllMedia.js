@@ -106,7 +106,7 @@ function AllMedia() {
                         <img
                           src={res.artworkUrl100}
                           alt={res.artistName}
-                          className="albumArtworkImage"
+                          className="allMediaAlbumArtworkImage"
                         />
                       </div>
                     </div>
@@ -156,7 +156,7 @@ function AllMedia() {
         </h1>
         <input
           type="text"
-          placeholder="Enter artist's name"
+          placeholder="Enter artist's name:"
           onChange={searchInputHandler}
           className="artistsInputField"
         />

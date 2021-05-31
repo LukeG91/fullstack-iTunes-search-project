@@ -154,7 +154,7 @@ function Software() {
         </h1>
         <input
           type="text"
-          placeholder="Enter artist's name"
+          placeholder="Search for software:"
           onChange={searchInputHandler}
           className="artistsInputField"
         />

@@ -155,7 +155,7 @@ function AudioBooks() {
         </h1>
         <input
           type="text"
-          placeholder="Enter artist's name"
+          placeholder="Enter artist's name:"
           onChange={searchInputHandler}
           className="artistsInputField"
         />

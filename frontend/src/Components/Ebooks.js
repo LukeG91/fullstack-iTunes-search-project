@@ -101,7 +101,7 @@ function Ebooks() {
                   >
                     <p className="artistsName">{res.artistName}</p>
                     <div className="albumArtworkContainer">
-                      <div className="podcastsAlbumArtworkInnerContainer">
+                      <div className="ebookArtworkInnerContainer">
                         <img
                           src={res.artworkUrl100}
                           alt={res.artistName}
@@ -155,7 +155,7 @@ function Ebooks() {
         </h1>
         <input
           type="text"
-          placeholder="Enter artist's name"
+          placeholder="Enter artist's name:"
           onChange={searchInputHandler}
           className="artistsInputField"
         />

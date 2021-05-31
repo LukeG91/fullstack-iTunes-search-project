@@ -77,7 +77,7 @@ body{
 
 .backgroundImage{
   width: 100%;
-  height: 1600px;
+  height: 2000px;
   object-fit: cover;
   opacity: 70%;
 }
@@ -112,7 +112,7 @@ body{
 .goToHomeLinkContainer{
   position: absolute;
   right: 15px;
-  top: 50px;
+  top: 10px;
   width: 150px;
 }
 
@@ -238,7 +238,7 @@ body{
 .albumArtworkInnerContainer{
   border: solid black;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   left: 3px;
 }
 
@@ -255,7 +255,6 @@ body{
 .subPodcastContainer{
   position: absolute;
   top: 50px;
-  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -265,15 +264,8 @@ body{
 .podcastsAlbumArtworkInnerContainer{
   border: solid black;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   left: 2px;
-}
-
-.allMediaAlbumArtworkInnerContainer{
-  border: solid black;
-  position: absolute;
-  bottom: 0;
-  
 }
 
 /* Styling the AudioBook component. */
@@ -298,7 +290,7 @@ body{
   font-size: 3.5rem;
   padding-bottom: 10px;
   margin-bottom: 25px;
-  border: solid black;
+  /* border: solid black; */
   border-radius: 5px;
 }
 
@@ -367,6 +359,12 @@ body{
   position: relative;
 }
 
+.ebookArtworkInnerContainer{
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+}
+
 .subEbookContainer{
   position: absolute;
   top: 50px;
@@ -386,7 +384,6 @@ body{
 .subAllMediaContainer{
   position: absolute;
   top: 50px;
-  /* border: solid black; */
   border-radius: 5px;
   left: 15%;
   width: 65%;
@@ -442,6 +439,21 @@ body{
 
 .favouritesAlbumArtworkImage{
   width: 70px;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* Styling the all media component. */
+
+.allMediaAlbumArtworkInnerContainer{
+  border: solid black;
+  position: absolute;
+  bottom: 35px;
+  
+}
+
+.allMediaAlbumArtworkImage{
+  width: 100px;
   height: 100px;
   object-fit: cover;
 }

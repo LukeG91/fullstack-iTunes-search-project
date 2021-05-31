@@ -163,7 +163,7 @@ function Songs() {
         {/* Creating an input field to allow the user to type in a specific artist. */}
         <input
           type="text"
-          placeholder="Enter an artist's name:"
+          placeholder="Enter artist's name:"
           onChange={searchInputHandler}
           className="artistsInputField"
         />
