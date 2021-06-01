@@ -224,3 +224,13 @@ router.get("/all/:artist", async (req, res) => {
 
 /* Exporting the router module. */
 module.exports = router;
+
+/* Resource used: 
+   =============================================================================
+   Task 19: my-fulstack-app-express
+   Created by: Luke Glendining
+   Month published: May 2021
+   Link to app: https://my-full-stack-express-app.herokuapp.com/
+   Link to GitHub repo: https://github.com/LukeG91/my-first-fullstack-app-express
+   =============================================================================
+*/

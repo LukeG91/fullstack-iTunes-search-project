@@ -102,4 +102,5 @@ Video Title: How to Make a React Website with Animations using Framer Motion
 Date video was published: Dec, 8 2020
 Video published by: Brian Design
 Link to video: https://www.youtube.com/watch?v=fuaVNHW-GYE
+============================================================================
 */
