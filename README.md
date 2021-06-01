@@ -1,4 +1,4 @@
-# Welcome to my full stack project that connects to the iTunes media search API and displays informationrelating to the typeof media that the user searches for:
+# Welcome to my full stack project that connects to the iTunes media search API and displays information relating to the type of media that the user searches for:
 
 ### How to use the app:
 
@@ -64,7 +64,7 @@ npm test
 
 `There were no API keys needed for this build so I did not need to hide any API keys using a .env file.`
 
-`To increased the security of the app, I have added helmet to my API.`
+`To increase the security of the app, I have added helmet to my API.`
 
 #### Link to my deployed app:
 
