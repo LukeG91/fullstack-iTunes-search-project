@@ -4,7 +4,7 @@
   "description": "",
   "main": "myServer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test",
     "start": "node myServer.js",
     "server": "nodemon myServer.js",
     "frontend": "npm start --prefix frontend",
@@ -26,5 +26,12 @@
   "engines": {
     "node": "14.15.0",
     "npm": "6.14.9"
+  },
+  "devDependencies": {
+    "chai": "4.3.4",
+    "chai-http": "4.3.0",
+    "mocha": "8.4.0",
+    "nyc": "15.1.0",
+    "should": "13.2.3"
   }
 }
