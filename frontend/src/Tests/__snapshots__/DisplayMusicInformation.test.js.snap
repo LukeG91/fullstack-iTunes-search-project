@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Displays the web page correctly before there is music information to display. 1`] = `
+<div
+  className="mainContainerSongsComponent"
+>
+  <img
+    alt="songs-background-image"
+    className="backgroundImage"
+    src="music-background.jpg"
+  />
+  <div
+    className="subContainerSongsComponent"
+  >
+    <h1
+      className="songsPageHeading"
+    >
+      <em>
+        Welcome to the music section:
+      </em>
+    </h1>
+    <input
+      className="artistsInputField"
+      onChange={[Function]}
+      placeholder="Enter artist's name:"
+      type="text"
+    />
+    <br />
+    <br />
+    <button
+      className="searchButton"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+    <br />
+    <br />
+  </div>
+  <div
+    id="outerMusicInfoContainer"
+  >
+    <div
+      className="musicInformation hideContainer"
+    />
+  </div>
+  <div
+    className="goToHomeLinkContainer"
+  >
+    <a
+      className="goToHomeLink"
+      href="/"
+    >
+      <em>
+        Go to home
+      </em>
+    </a>
+  </div>
+</div>
+`;
